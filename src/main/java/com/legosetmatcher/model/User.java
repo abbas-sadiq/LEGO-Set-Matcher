@@ -1,25 +1,26 @@
-// User.java (Entity)
+// src/main/java/com/legosetmatcher/model/User.java
 package com.legosetmatcher.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-
 @Entity
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true)
     private String username;
-    private String email;
+
+    private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserLegoSet> ownedSets;
 }
-
-

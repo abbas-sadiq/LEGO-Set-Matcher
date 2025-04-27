@@ -1,22 +1,10 @@
+// src/main/java/com/legosetmatcher/service/UserService.java
 package com.legosetmatcher.service;
 
+import com.legosetmatcher.model.User;
 
-import com.legosetmatcher.dto.UserDTO;
-import com.legosetmatcher.service.impl.UserServiceImpl;
+public interface UserService {
+    User createUser(User user);
+    User getUserById(Long id);
 
-import java.util.List;
-
-public interface UserService{
-
-    List<UserDTO> getAllUsers();
-
-    UserDTO createUser(UserDTO userDTO);
-
-    UserDTO getUserById(Long id);
-
-
-    UserDTO updateUser(Long id, UserDTO userDTO);
-
-    void deleteUser(Long id);
 }
-
